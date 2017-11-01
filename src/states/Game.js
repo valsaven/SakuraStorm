@@ -29,15 +29,11 @@ export default class extends Phaser.State {
 
     this.game.add.existing(this.player)
 
-    // Input
-    this.upKey = this.game.input.keyboard.addKey(Phaser.Keyboard.UP)
-    this.downKey = this.game.input.keyboard.addKey(Phaser.Keyboard.DOWN)
-    this.leftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT)
-    this.rightKey = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT)
-
+    // Arrows
+    this.cursors = this.game.input.keyboard.createCursorKeys()
     // Focusing
     this.focusKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT)
-    // Shoot
+    // Fire
     this.fireKey = this.game.input.keyboard.addKey(Phaser.Keyboard.Z)
     // Bomb
     this.bombKey = this.game.input.keyboard.addKey(Phaser.Keyboard.X)
@@ -74,16 +70,16 @@ export default class extends Phaser.State {
       console.log('Boom!')
     }
 
-    if (this.upKey.isDown) {
+    if (this.cursors.up.isDown) {
       this.player.y -= playerSpeed
-    } else if (this.downKey.isDown) {
+    } else if (this.cursors.down.isDown) {
       this.player.y += playerSpeed
     }
 
-    if (this.leftKey.isDown) {
+    if (this.cursors.left.isDown) {
       this.player.x -= playerSpeed
       this.player.angle = -15
-    } else if (this.rightKey.isDown) {
+    } else if (this.cursors.right.isDown) {
       this.player.x += playerSpeed
       this.player.angle = +15
     } else {
