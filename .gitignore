@@ -57,3 +57,12 @@ typings/
 # dotenv environment variables file
 .env
 
+# Stuff
+www/
+platforms/
+plugins/
+dist/
+.vscode/
+package-lock.json
+/index.html
+.idea
