@@ -1,6 +1,6 @@
 /* globals __DEV__ */
 import Phaser from 'phaser'
-import Mushroom from '../sprites/Mushroom'
+import Player from '../sprites/Player'
 
 export default class extends Phaser.State {
   init () {}
@@ -20,14 +20,14 @@ export default class extends Phaser.State {
     banner.smoothed = false
     banner.anchor.setTo(0.5)
 
-    this.mushroom = new Mushroom({
+    this.player = new Player({
       game: this.game,
       x: this.world.centerX,
-      y: this.world.centerY,
-      asset: 'mushroom'
+      y: 600,
+      asset: 'player'
     })
 
-    this.game.add.existing(this.mushroom)
+    this.game.add.existing(this.player)
 
     // Input
     this.upKey = this.game.input.keyboard.addKey(Phaser.Keyboard.UP)
@@ -60,11 +60,10 @@ export default class extends Phaser.State {
     //  Tell the Weapon to track the 'player' Sprite
     //  With no offsets from the position
     //  But the 'true' argument tells the weapon to track sprite rotation
-    this.weapon.trackSprite(this.mushroom, 0, 0, false)
+    this.weapon.trackSprite(this.player, 0, 0, false)
   }
 
   update () {
-    const player = this.mushroom
     const playerSpeed = this.focusKey.isDown ? this.speed / 2 : this.speed
 
     if (this.fireKey.isDown) {
@@ -76,25 +75,25 @@ export default class extends Phaser.State {
     }
 
     if (this.upKey.isDown) {
-      player.y -= playerSpeed
+      this.player.y -= playerSpeed
     } else if (this.downKey.isDown) {
-      player.y += playerSpeed
+      this.player.y += playerSpeed
     }
 
     if (this.leftKey.isDown) {
-      player.x -= playerSpeed
-      player.angle = -15
+      this.player.x -= playerSpeed
+      this.player.angle = -15
     } else if (this.rightKey.isDown) {
-      player.x += playerSpeed
-      player.angle = +15
+      this.player.x += playerSpeed
+      this.player.angle = +15
     } else {
-      player.rotation = 0
+      this.player.rotation = 0
     }
   }
 
   render () {
     if (__DEV__) {
-      this.game.debug.spriteInfo(this.mushroom, 32, 32)
+      this.game.debug.spriteInfo(this.player, 32, 32)
     }
   }
 }
