@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+}
+
+/* FIXME: Font doesn't work */
+@font-face {
+  font-family: 'Bangers';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/bangers-v20-latin-regular.woff2') format("woff2");
+}
