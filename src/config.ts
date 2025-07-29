@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default {
   type: Phaser.AUTO,
-  parent: 'game',
+  parent: 'app',
   backgroundColor: '#edeec9',
   physics: {
     default: 'arcade',

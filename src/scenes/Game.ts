@@ -39,7 +39,9 @@ class Bullet extends Phaser.Physics.Arcade.Sprite {
   }
 
   fire(x: number, y: number) {
-    this.body.reset(x, y);
+    if (this.body) {
+      this.body.reset(x, y);
+    }
 
     this.setActive(true);
     this.setVisible(true);
@@ -97,9 +99,11 @@ export default class SakuraStorm extends Phaser.Scene {
     this.player = this.physics.add.image(centerX, bottom, 'player');
     this.player.setCollideWorldBounds(true);
 
-    cursors = this.input.keyboard.createCursorKeys();
-    keyFire = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
-    keyBomb = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+    if (this.input.keyboard) {
+      cursors = this.input.keyboard.createCursorKeys();
+      keyFire = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.Z);
+      keyBomb = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.X);
+    }
   }
 
   shootBullet() {

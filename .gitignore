@@ -1,11 +1,20 @@
-# System and IDE files
-Thumbs.db
-.DS_Store
-.vscode
-.idea
+# Logs
+logs
+*.log
+npm-debug.log*
 
-# Vendors
-node_modules/
-
-# Build
+node_modules
 dist
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+Thumbs.db
