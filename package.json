@@ -7,7 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "npx -y http-server dist"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,7 @@
     "phaser": "^3.90.0"
   },
   "devDependencies": {
-    "typescript": "~5.8.3",
-    "vite": "^7.0.4"
+    "typescript": "~5.9.3",
+    "vite": "^7.2.7"
   }
 }
