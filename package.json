@@ -1,7 +1,7 @@
 {
   "name": "sakura-storm",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Just another danmaku shooter.",
   "type": "module",
   "scripts": {
@@ -25,6 +25,6 @@
   },
   "devDependencies": {
     "typescript": "~5.9.3",
-    "vite": "^7.2.7"
+    "vite": "^7.3.1"
   }
 }
